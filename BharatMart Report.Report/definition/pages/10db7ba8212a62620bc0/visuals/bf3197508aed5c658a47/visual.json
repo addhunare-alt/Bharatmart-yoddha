@@ -1,0 +1,83 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "bf3197508aed5c658a47",
+  "position": {
+    "x": 941.25,
+    "y": 415,
+    "z": 18000,
+    "height": 305,
+    "width": 331.25,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_customers"
+                    }
+                  },
+                  "Property": "customer_name"
+                }
+              },
+              "queryRef": "gold_customers.customer_name",
+              "nativeQueryRef": "customer_name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_Sales"
+                    }
+                  },
+                  "Property": "Total Orders"
+                }
+              },
+              "queryRef": "gold_fact_Sales.Total Orders",
+              "nativeQueryRef": "Total Orders"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_stores"
+                    }
+                  },
+                  "Property": "zone"
+                }
+              },
+              "queryRef": "gold_stores.zone",
+              "nativeQueryRef": "zone"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_Sales"
+                    }
+                  },
+                  "Property": "Unit Sold"
+                }
+              },
+              "queryRef": "gold_fact_Sales.Unit Sold",
+              "nativeQueryRef": "Unit Sold"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

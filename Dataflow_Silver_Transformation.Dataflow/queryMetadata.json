@@ -1,0 +1,73 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Dataflow_Silver_Transformation",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "dim_customers": {
+      "queryId": "e614f84d-86f9-46ee-8424-8918244a5461",
+      "queryName": "dim_customers",
+      "loadEnabled": false
+    },
+    "dim_products": {
+      "queryId": "44db9cc1-df2b-4c3c-80d7-57144560a9a0",
+      "queryName": "dim_products",
+      "loadEnabled": false
+    },
+    "dim_stores": {
+      "queryId": "caa03b37-29ef-4091-8fee-1608a9d2633b",
+      "queryName": "dim_stores",
+      "loadEnabled": false
+    },
+    "dim_targets": {
+      "queryId": "e67c67a0-47f8-42a9-8d55-9c2dab42f8fa",
+      "queryName": "dim_targets",
+      "loadEnabled": false
+    },
+    "fact_sales": {
+      "queryId": "45180e1f-b84a-4658-b4d1-c1fdcf50c7f3",
+      "queryName": "fact_sales",
+      "loadEnabled": false
+    },
+    "fact_sales_DataDestination": {
+      "queryId": "a35ac3aa-9c62-481d-906c-b5d8b4e5abab",
+      "queryName": "fact_sales_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_customers_DataDestination": {
+      "queryId": "512f6109-8891-4924-a209-b538d0d541b9",
+      "queryName": "dim_customers_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_products_DataDestination": {
+      "queryId": "fe29478a-466b-47e3-a1dd-03509be3c4b4",
+      "queryName": "dim_products_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_stores_DataDestination": {
+      "queryId": "8dbe0fc4-7465-4a28-baa2-794d28657367",
+      "queryName": "dim_stores_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dim_targets_DataDestination": {
+      "queryId": "a7877966-f09e-4c63-9656-7b0ce5a86225",
+      "queryName": "dim_targets_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"4967bea0-f00c-4a59-ad03-031a1984aaaf\",\"DatasourceId\":\"27f6739e-602a-4dc0-bdc3-9326c1637c8e\"}"
+    }
+  ]
+}

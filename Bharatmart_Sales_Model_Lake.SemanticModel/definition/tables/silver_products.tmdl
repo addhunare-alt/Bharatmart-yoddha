@@ -1,0 +1,71 @@
+table silver_products
+	lineageTag: b931e1ac-cfa1-4ca2-ab5b-6c12a2f87726
+	sourceLineageTag: [dbo].[silver_products]
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3363c1c9-daa7-4777-84cf-da4e445daa2e
+		sourceLineageTag: product_id
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: b17c3184-1781-4ffd-9bb7-978035321884
+		sourceLineageTag: product_name
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 9effdf2f-f40e-4713-8f82-750e992a16c1
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: 298ecca8-1147-498a-b8dc-034722c4bc86
+		sourceLineageTag: price
+		summarizeBy: none
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column list_price
+		dataType: double
+		lineageTag: 69b37f50-223c-4b65-a8e0-da93fb2d5d2c
+		sourceLineageTag: list_price
+		summarizeBy: none
+		sourceColumn: list_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sk_product
+		dataType: int64
+		formatString: 0
+		lineageTag: 2098c81e-6f03-40fb-b938-1178933f58d2
+		sourceLineageTag: sk_product
+		summarizeBy: none
+		sourceColumn: sk_product
+
+		annotation SummarizationSetBy = Automatic
+
+	partition silver_products = entity
+		mode: directLake
+		source
+			entityName: silver_products
+			schemaName: dbo
+			expressionSource: 'DirectLake - Final_LH_Silver'
+

@@ -1,0 +1,68 @@
+table silver_stores
+	lineageTag: f8e24d27-c99a-4b6d-a582-4b4931c6a909
+	sourceLineageTag: [dbo].[silver_stores]
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e2b2f91-cc03-4176-8965-12cd7f92195b
+		sourceLineageTag: store_id
+		summarizeBy: sum
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_name
+		dataType: string
+		lineageTag: 83b426c8-78d2-4565-adba-c80ed8f8c323
+		sourceLineageTag: store_name
+		summarizeBy: none
+		sourceColumn: store_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		lineageTag: 8ea3eb39-82a5-4f2f-a125-dde9123ca8d1
+		sourceLineageTag: zone
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 2dde52ae-77d1-4776-8fd0-28e0a5b863bf
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column open_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b75e76d0-8626-4550-9035-66dadefe5f43
+		sourceLineageTag: open_date
+		summarizeBy: none
+		sourceColumn: open_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_store
+		dataType: int64
+		formatString: 0
+		lineageTag: a7fc290e-e617-41e6-8ccb-3b3e9a3ba61b
+		sourceLineageTag: sk_store
+		summarizeBy: none
+		sourceColumn: sk_store
+
+		annotation SummarizationSetBy = Automatic
+
+	partition silver_stores = entity
+		mode: directLake
+		source
+			entityName: silver_stores
+			schemaName: dbo
+			expressionSource: 'DirectLake - Final_LH_Silver'
+

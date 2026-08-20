@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "Bharatmart_Bronze_DLH"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9a85ca02-6dce-b4e4-47bb-4539b5feeaeb"
+  }
+}

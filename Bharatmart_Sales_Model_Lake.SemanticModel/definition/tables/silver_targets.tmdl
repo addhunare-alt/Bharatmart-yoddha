@@ -1,0 +1,71 @@
+table silver_targets
+	lineageTag: 0d66fc2d-a720-4e51-a852-44efe940f08a
+	sourceLineageTag: [dbo].[silver_targets]
+
+	column target_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ee22765-b9c7-4802-bbe0-3e9f625e3ca1
+		sourceLineageTag: target_id
+		summarizeBy: none
+		sourceColumn: target_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		lineageTag: 8c9835fc-3174-4b73-af86-f34a1720571c
+		sourceLineageTag: zone
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: e0f7c7dc-36f2-484c-95ac-8fabc49b45ba
+		sourceLineageTag: year
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: f5994649-4491-489e-9bf2-de66be2d605e
+		sourceLineageTag: month
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_amount
+		dataType: double
+		lineageTag: 3ace09ff-f67d-47c5-9b4a-10161d74aeec
+		sourceLineageTag: target_amount
+		summarizeBy: none
+		sourceColumn: target_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sk_target
+		dataType: int64
+		formatString: 0
+		lineageTag: 506e7343-a479-47d1-9248-3cc5b66f8444
+		sourceLineageTag: sk_target
+		summarizeBy: none
+		sourceColumn: sk_target
+
+		annotation SummarizationSetBy = Automatic
+
+	partition silver_targets = entity
+		mode: directLake
+		source
+			entityName: silver_targets
+			schemaName: dbo
+			expressionSource: 'DirectLake - Final_LH_Silver'
+

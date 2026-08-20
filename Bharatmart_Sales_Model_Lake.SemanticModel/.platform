@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Bharatmart_Sales_Model_Lake"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b0bbc379-d348-ae51-4f83-231911fb39b7"
+  }
+}

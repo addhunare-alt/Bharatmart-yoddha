@@ -1,0 +1,17 @@
+relationship 03168f41-377a-b4d8-230c-11f441c5adc0
+	fromColumn: silver_sales.sk_customer
+	toColumn: silver_customers.customer_id
+
+relationship 040f77b0-1323-e9c6-377b-743b395ba5d2
+	fromColumn: silver_sales.sk_product
+	toColumn: silver_products.sk_product
+
+relationship 37c263ed-1737-32f1-1d62-d002970df84f
+	fromColumn: silver_sales.sk_store
+	toColumn: silver_stores.sk_store
+
+relationship e008b691-983a-83cf-3058-fe6c12a9dec2
+	crossFilteringBehavior: bothDirections
+	fromColumn: silver_stores.zone
+	toColumn: silver_targets.zone
+

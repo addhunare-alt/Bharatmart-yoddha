@@ -1,0 +1,79 @@
+table gold_products
+	lineageTag: 6e1d5c72-8c58-4e56-86b8-72ed5a5f1c5c
+	sourceLineageTag: [dbo].[gold_products]
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: ac4dc456-8293-49dc-b7b4-de07aec49e99
+		sourceLineageTag: product_id
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 658993a5-ea21-47a2-8166-4e3da200fed4
+		sourceLineageTag: product_name
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 18f13ca7-db4f-4482-bf35-8fea27d761d8
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: fd1b53fe-5ce1-4410-9166-d35f19c97fec
+		sourceLineageTag: price
+		summarizeBy: none
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column list_price
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 371cf359-2c44-46a2-b414-fdfcc7df76a6
+		sourceLineageTag: list_price
+		summarizeBy: none
+		sourceColumn: list_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sk_product
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1c09f1de-a61e-4bbb-b59b-f8dfdc0c8f60
+		sourceLineageTag: sk_product
+		summarizeBy: none
+		sourceColumn: sk_product
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_products = entity
+		mode: directLake
+		source
+			entityName: gold_products
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
