@@ -1,0 +1,93 @@
+table gold_customers
+	lineageTag: 0f8d5e95-9b45-4e1e-8e80-a587ee955404
+	sourceLineageTag: [dbo].[gold_customers]
+
+	measure 'Total Revenue' = SUM(gold_fact_Sales[amount])
+		lineageTag: 3a6f7c29-b733-4c84-a77f-702151cc42aa
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Customers' = DISTINCTCOUNT(gold_fact_Sales[sk_customer])
+		formatString: 0.00
+		lineageTag: c37a9ce1-53d2-49dd-8bad-850e485099d4
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	column sk_customer
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8770875b-df65-48a8-83cb-86437b1456c4
+		sourceLineageTag: sk_customer
+		summarizeBy: none
+		sourceColumn: sk_customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0e7e8360-d9bd-4824-aef0-d3ec955fd2ba
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 6a482153-7619-40a5-8649-63e470bafb0f
+		sourceLineageTag: customer_name
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: e86b4e18-c72a-4fae-86d6-417a2f101106
+		sourceLineageTag: email
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		sourceProviderType: varchar(80)
+		lineageTag: 25bb8526-97a5-47b7-8981-8ae59499f4c2
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column birth_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 138fdbc2-9a6f-4107-b96c-a084d7dac5c1
+		sourceLineageTag: birth_date
+		summarizeBy: none
+		sourceColumn: birth_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_customers = entity
+		mode: directLake
+		source
+			entityName: gold_customers
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

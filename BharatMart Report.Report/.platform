@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "BharatMart Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f8072309-45d1-b322-4995-e0b1427e9677"
+  }
+}

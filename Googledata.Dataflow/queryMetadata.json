@@ -1,0 +1,40 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Googledata",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "GoogleSales": {
+      "queryId": "38e1363c-4b09-4a8f-aa25-49e7ef7d0837",
+      "queryName": "GoogleSales",
+      "loadEnabled": false
+    },
+    "GoogleSales_DataDestination": {
+      "queryId": "ae925a47-412d-482c-8d36-57eee3e41b65",
+      "queryName": "GoogleSales_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "GoogleSales_DataDestinationTransform": {
+      "queryId": "47f4543c-c961-4c85-840f-271e94bea794",
+      "queryName": "GoogleSales_DataDestinationTransform",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://drive.google.com/uc?export=download&id=1IhBa8byYlcLHM8qTi0Ty9nKTMDpDI9m0",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"4967bea0-f00c-4a59-ad03-031a1984aaaf\",\"DatasourceId\":\"3735c517-7e88-49cc-9ba9-2a0d0285a6fb\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"4967bea0-f00c-4a59-ad03-031a1984aaaf\",\"DatasourceId\":\"27f6739e-602a-4dc0-bdc3-9326c1637c8e\"}"
+    }
+  ]
+}

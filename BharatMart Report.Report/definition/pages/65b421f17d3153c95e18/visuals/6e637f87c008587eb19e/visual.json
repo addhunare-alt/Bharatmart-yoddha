@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "6e637f87c008587eb19e",
+  "position": {
+    "x": 576.25,
+    "y": 0,
+    "z": 4,
+    "height": 270,
+    "width": 686.25,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_products"
+                    }
+                  },
+                  "Property": "category"
+                }
+              },
+              "queryRef": "gold_products.category",
+              "nativeQueryRef": "category"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Basic Calculations"
+                    }
+                  },
+                  "Property": "Revenue YTD (Indian FY)"
+                }
+              },
+              "queryRef": "Basic Calculations.Revenue YTD (Indian FY)",
+              "nativeQueryRef": "Revenue YTD (Indian FY)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Basic Calculations"
+                    }
+                  },
+                  "Property": "Revenue YoY %"
+                }
+              },
+              "queryRef": "Basic Calculations.Revenue YoY %",
+              "nativeQueryRef": "Revenue YoY %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Basic Calculations"
+                    }
+                  },
+                  "Property": "Total Product Sold"
+                }
+              },
+              "queryRef": "Basic Calculations.Total Product Sold",
+              "nativeQueryRef": "Total Product Sold"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f73e81acc830694b78ab",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_products"
+              }
+            },
+            "Property": "category"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4c9ce7bd228a17530901",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Basic Calculations"
+              }
+            },
+            "Property": "Revenue YTD (Indian FY)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bd94f6f2ec808c0a178b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Basic Calculations"
+              }
+            },
+            "Property": "Revenue YoY %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e04816b52ad39d33dd45",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Basic Calculations"
+              }
+            },
+            "Property": "Total Product Sold"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

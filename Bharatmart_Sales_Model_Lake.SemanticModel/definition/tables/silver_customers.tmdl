@@ -1,0 +1,78 @@
+table silver_customers
+	lineageTag: df63d022-4eb0-4f2e-b8dd-584acc59c6ba
+	sourceLineageTag: [dbo].[silver_customers]
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ca83016-fc3f-455e-843d-b3d57f968485
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: 16cada74-8f95-4ae1-aaa9-506849829e3c
+		sourceLineageTag: customer_name
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: 5bef5ac5-b57b-4748-87ca-12d24d3bb74f
+		sourceLineageTag: email
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 83591a1b-b189-43ab-9f8e-ef220b5e3486
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column birth_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 158feb75-c2ba-4738-9710-ce936595ee3d
+		sourceLineageTag: birth_date
+		summarizeBy: none
+		sourceColumn: birth_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 275c37a8-36f8-4dc7-8d4c-d4d340301b1e
+		sourceLineageTag: updated_at
+		summarizeBy: none
+		sourceColumn: updated_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_customer
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f748adc-fc87-405e-90b4-7c439454f5d7
+		sourceLineageTag: sk_customer
+		summarizeBy: none
+		sourceColumn: sk_customer
+
+		annotation SummarizationSetBy = Automatic
+
+	partition silver_customers = entity
+		mode: directLake
+		source
+			entityName: silver_customers
+			schemaName: dbo
+			expressionSource: 'DirectLake - Final_LH_Silver'
+

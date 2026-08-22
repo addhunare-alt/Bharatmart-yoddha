@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "71cc1ef2354d0299674c",
+  "position": {
+    "x": 750,
+    "y": 68.75,
+    "z": 5000,
+    "height": 96.25,
+    "width": 141.25,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_Sales"
+                    }
+                  },
+                  "Property": "Unit Sold"
+                }
+              },
+              "queryRef": "gold_fact_Sales.Unit Sold",
+              "nativeQueryRef": "Unit Sold"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold_fact_Sales"
+                  }
+                },
+                "Property": "Unit Sold"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

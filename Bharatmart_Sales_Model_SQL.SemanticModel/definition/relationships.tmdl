@@ -1,0 +1,23 @@
+relationship b7e72675-95e5-9088-476e-56115597202d
+	fromColumn: gold_fact_Sales.sk_customer
+	toColumn: gold_customers.sk_customer
+
+relationship fd58e2a1-3ade-44bb-454e-d2374ccfec1f
+	fromColumn: gold_fact_Sales.sk_product
+	toColumn: gold_products.sk_product
+
+relationship 0fd42668-a004-1692-66c2-4c0fd8aad38b
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	fromColumn: gold_fact_Sales.sk_store
+	toColumn: gold_stores.sk_store
+
+relationship dfc3d593-fb7a-d181-ba8f-1d4535b21455
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_targets.zone
+	toColumn: gold_stores.zone
+
+relationship 52ad6934-1432-4464-c913-424687ebfbf5
+	fromColumn: gold_fact_Sales.sale_date
+	toColumn: calendar.Date
+

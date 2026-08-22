@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "BharatMart_Report_Lake"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3975c57d-3472-ab64-4e42-ca9e5e8312c5"
+  }
+}

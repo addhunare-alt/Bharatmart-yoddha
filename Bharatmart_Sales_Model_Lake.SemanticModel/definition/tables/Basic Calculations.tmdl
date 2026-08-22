@@ -1,0 +1,44 @@
+table 'Basic Calculations'
+	lineageTag: b18d2a7d-ca8f-48e3-8767-0b0bb97da5c0
+
+	measure 'Total Revenue' = SUM(silver_sales[amount])
+		lineageTag: 6e8e8d6e-ce17-4757-b401-2ad44caac194
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Orders' = DISTINCTCOUNT(silver_sales[sale_id])
+		formatString: 0
+		lineageTag: e9a25d69-9e6c-4c54-9132-c9563d5bfa92
+
+	measure 'Total Customers' = DISTINCTCOUNT(silver_sales[sk_customer])
+		formatString: #,0
+		lineageTag: db7f839f-806c-4c7b-a0b4-a538cb22d563
+
+	measure 'Total Product Sold' = DISTINCTCOUNT(silver_sales[sk_product])
+		formatString: 0
+		lineageTag: aba306b4-1388-4709-bf94-4fbf4bd654ef
+
+	measure 'Total Stores' = DISTINCTCOUNT(silver_sales[sk_store])
+		formatString: 0
+		lineageTag: d09c4029-35c2-48f5-b0fd-3f52e1978363
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 87f7db76-e0c6-4609-bdc5-b6f6d5e8c9a2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Basic Calculations' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = e4b23068bb1348f8a60b268054b99b7f
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":null}
+
+	annotation 277cc1b9-af89-4597-8e15-cacc25c0886b = To use special characters in a calculated table name, enclose the entire name in brackets ( [] ) and add a ] to any closing brackets in the name.
+

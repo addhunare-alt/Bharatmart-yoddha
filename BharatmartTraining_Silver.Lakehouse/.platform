@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "BharatmartTraining_Silver"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "142f72b2-b8f9-bb5e-44e8-f51ba981bd64"
+  }
+}

@@ -1,0 +1,76 @@
+table gold_stores
+	lineageTag: f73a4d94-a667-4058-8ac3-5d01f0615444
+	sourceLineageTag: [dbo].[gold_stores]
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f2af1ed0-ca02-4922-b98b-34dd7d783746
+		sourceLineageTag: store_id
+		summarizeBy: sum
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_name
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: bd23fa21-49e8-4eae-8427-4c94e97e8ea5
+		sourceLineageTag: store_name
+		summarizeBy: none
+		sourceColumn: store_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: dcdf34f5-44ca-4ab8-9a03-cb69d38bec4b
+		sourceLineageTag: zone
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 00c99aa9-41a7-464b-8030-0b619eae33f3
+		sourceLineageTag: city
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column open_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: eb4937d5-a473-424f-8b50-338790d83d88
+		sourceLineageTag: open_date
+		summarizeBy: none
+		sourceColumn: open_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_store
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 04b3a7b6-3adb-4f51-870f-122f87816ce5
+		sourceLineageTag: sk_store
+		summarizeBy: none
+		sourceColumn: sk_store
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_stores = entity
+		mode: directLake
+		source
+			entityName: gold_stores
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

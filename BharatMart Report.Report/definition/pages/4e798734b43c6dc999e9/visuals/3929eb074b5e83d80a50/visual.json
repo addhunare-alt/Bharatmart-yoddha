@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "3929eb074b5e83d80a50",
+  "position": {
+    "x": 510,
+    "y": 415,
+    "z": 19,
+    "height": 294,
+    "width": 381,
+    "tabOrder": 19
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Basic Calculations"
+                    }
+                  },
+                  "Property": "Target Sales"
+                }
+              },
+              "queryRef": "Basic Calculations.Target Sales",
+              "nativeQueryRef": "Target Sales"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_Sales"
+                    }
+                  },
+                  "Property": "Unit Sold"
+                }
+              },
+              "queryRef": "gold_fact_Sales.Unit Sold",
+              "nativeQueryRef": "Unit Sold"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Basic Calculations"
+                  }
+                },
+                "Property": "Target Sales"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

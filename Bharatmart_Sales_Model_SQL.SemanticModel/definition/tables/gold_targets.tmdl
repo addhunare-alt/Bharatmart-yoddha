@@ -1,0 +1,79 @@
+table gold_targets
+	lineageTag: 52f658e2-4fd5-4378-b862-2debe47b353d
+	sourceLineageTag: [dbo].[gold_targets]
+
+	column target_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d7fae290-2371-49ee-b28b-9f32419988e1
+		sourceLineageTag: target_id
+		summarizeBy: sum
+		sourceColumn: target_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 0739114e-bf24-44a2-b051-cf79c74b71b7
+		sourceLineageTag: zone
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 728604dc-6dff-4125-86cc-bda00af3f6e0
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6f0a3eb4-e7a1-427d-beaa-532f99acb747
+		sourceLineageTag: month
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_amount
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 3fadd8e3-5b43-44c7-bafd-af2a74a8f7bf
+		sourceLineageTag: target_amount
+		summarizeBy: sum
+		sourceColumn: target_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sk_target
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d5dff93b-bc25-49ce-a784-299b00a0913a
+		sourceLineageTag: sk_target
+		summarizeBy: sum
+		sourceColumn: sk_target
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_targets = entity
+		mode: directLake
+		source
+			entityName: gold_targets
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

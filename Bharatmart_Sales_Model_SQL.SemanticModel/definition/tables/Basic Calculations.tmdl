@@ -1,0 +1,112 @@
+table 'Basic Calculations'
+	lineageTag: 9af32ac7-329a-4cd2-a067-44a0ba12151a
+
+	measure 'Revenue % of Total' =
+			
+			DIVIDE([Total Revenue],
+			CALCULATE([Total Revenue],ALL(gold_stores)))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5da5331b-28a2-4564-90cd-bbf5f4683ec3
+
+	measure 'Revenue % within Zone' =
+			
+			DIVIDE([Total Revenue],
+			CALCULATE([Total Revenue],
+			ALLEXCEPT(gold_stores,gold_stores[zone])))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 91ee5292-efa6-423b-97a9-d4b10016e656
+
+	measure 'Avg Revenue per Order' = DIVIDE([Total Revenue],[Total Orders])
+		lineageTag: 8a04077a-673a-438e-b09f-2965d7657e47
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Ticket' = DIVIDE([Total Revenue],[Unit Sold])
+		lineageTag: fabdb0be-e107-4962-bc3a-b0a06819066f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top Zone Revenue' = MAXX( VALUES(gold_stores[zone]),CALCULATE([Total Revenue]))
+		lineageTag: c7568a73-f0a4-4a2a-8f49-d10f320dc98e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue Rank' = RANKX(ALL(gold_stores[zone]), [Total Revenue])
+		formatString: 0
+		lineageTag: f6cfcf17-2089-4e42-a934-05ff82863fc7
+
+	measure 'Target Revenue' = SUM( gold_targets[target_amount])
+		lineageTag: 0a1f1f37-9a76-4eb8-8fe5-9e1857c597b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Attainment %' = DIVIDE([Total Revenue],[Target Revenue])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fcb27e7e-901b-4001-accf-524e25857ceb
+
+	measure Variance = [Total Revenue] - [Target Revenue]
+		lineageTag: ff764b87-66ef-4edc-8841-da5807574fd8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variance %' = DIVIDE([Variance],[Target Revenue])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2bc20474-cc89-4804-b24a-f0a01ff28207
+
+	measure 'Revenue YTD (Indian FY)' = ```
+			
+			TOTALYTD([Total Revenue], 'calendar'[Date], "3-31")  -- NOT "12-31"! 
+			```
+		lineageTag: 6e7ed17d-f9ed-4a2f-a889-341bf80be1b7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue LY' =
+			
+			CALCULATE([Total Revenue], SAMEPERIODLASTYEAR('calendar'[Date]))
+		lineageTag: 2eab66ad-b273-41a0-af41-e5b6d3a259b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue YoY %' =
+			
+			VAR cur = [Total Revenue]
+			VAR ly = [Revenue LY]
+			RETURN DIVIDE(cur - ly,ly)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e84f2a4d-94fd-4d36-8229-cbb275a5eece
+
+	measure 'Total Product Sold' = DISTINCTCOUNT(gold_fact_Sales[sk_product])
+		formatString: 0
+		lineageTag: 12cbe7c5-e802-462a-8578-7116efa4cc14
+
+	measure 'Total Stores' = DISTINCTCOUNT(gold_fact_Sales[sk_store])
+		formatString: 0
+		lineageTag: 8ea77c1a-3e9b-4003-baa3-aea5e5ed5df5
+
+	measure 'Target Sales' = SUM(gold_targets[target_amount])
+		lineageTag: 995b527a-2146-4b88-9aad-07c1099eef3e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 3a99ce66-7c49-49b1-b0e8-1282a0c4defa
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Basic Calculations' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 6e122a5edc3845b685f1faf28ef80edf
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

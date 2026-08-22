@@ -1,0 +1,132 @@
+table gold_fact_Sales
+	lineageTag: 62062a5e-6925-4248-98d2-bb78700a7c6c
+	sourceLineageTag: [dbo].[gold_fact_Sales]
+
+	measure 'Unit Sold' = SUM(gold_fact_Sales[quantity])
+		formatString: 0
+		lineageTag: 70d255ea-fad6-4d5a-b5c0-0730a8b0f2ee
+
+		changedProperty = Name
+
+	measure 'Total Orders' = DISTINCTCOUNT(gold_fact_Sales[sale_id])
+		formatString: 0
+		lineageTag: c482459b-abfb-4b38-bbf9-defd16997934
+
+		changedProperty = Name
+
+	column sk_customer
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: af9822e6-df3d-4403-89d2-9ff789c26785
+		sourceLineageTag: sk_customer
+		summarizeBy: none
+		sourceColumn: sk_customer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_product
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: acbb06bd-fdc5-4bed-80d6-4d3dba043ac7
+		sourceLineageTag: sk_product
+		summarizeBy: none
+		sourceColumn: sk_product
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_store
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d874bc18-5ef8-42dd-b877-f504ec2d9339
+		sourceLineageTag: sk_store
+		summarizeBy: none
+		sourceColumn: sk_store
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 64077fa7-8334-4433-815e-9d6b9f1fa84a
+		sourceLineageTag: unit_price
+		summarizeBy: sum
+		sourceColumn: unit_price
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sale_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 53752b1d-6c97-40a5-848f-52d1d7e121b5
+		sourceLineageTag: sale_id
+		summarizeBy: sum
+		sourceColumn: sale_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sale_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: c12747c9-c116-425f-85ca-b0b236fe2de6
+		sourceLineageTag: sale_date
+		summarizeBy: none
+		sourceColumn: sale_date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ee294740-ef4c-43b0-9683-435e59807697
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 969f108f-63d0-4ec1-b547-74e7fa50670f
+		sourceLineageTag: amount
+		summarizeBy: sum
+		sourceColumn: amount
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_fact_Sales = entity
+		mode: directLake
+		source
+			entityName: gold_fact_Sales
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
